@@ -4,8 +4,8 @@ package co.edu.umanizales.vehicle_rental.model;
 public class Car extends AbstractVehicle implements VehicleAble{
     public boolean extras;
 
-    public Car(String type,String numberPlate, int km, boolean state, double rentalPrice,boolean extras) {
-        super(type,numberPlate, km, state, rentalPrice);
+    public Car(String type,String color,String numberPlate, int km, boolean state, double rentalPrice,boolean extras) {
+        super(type,color,numberPlate, km, state, rentalPrice);
         this.extras = extras;
     }
 

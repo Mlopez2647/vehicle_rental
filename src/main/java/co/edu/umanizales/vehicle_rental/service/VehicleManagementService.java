@@ -1,4 +1,5 @@
 package co.edu.umanizales.vehicle_rental.service;
+import co.edu.umanizales.vehicle_rental.dto.FilterDTO;
 import co.edu.umanizales.vehicle_rental.model.AbstractVehicle;
 import co.edu.umanizales.vehicle_rental.model.*;
 import jakarta.annotation.PostConstruct;
@@ -16,11 +17,11 @@ public class VehicleManagementService {
     @PostConstruct
     public void fillVehicle() {
         AbstractVehicle =new ArrayList<>();
-        AbstractVehicle motorcycle = new Motorcycle("Motorcycle","OUC43F",5000,true,450000, true);
+        AbstractVehicle motorcycle = new Motorcycle("Motorcycle","azul","OUC43F",5000,true,450000, true);
         AbstractVehicle.add(motorcycle);
-        AbstractVehicle car= new Car("Car","MTO325",5000,true,588888, false);
+        AbstractVehicle car= new Car("Car","verde","MTO325",5000,true,588888, false);
         AbstractVehicle.add(car);
-        AbstractVehicle van= new Van ("Van","COT879",6000,true,987776,(short) 5);
+        AbstractVehicle van= new Van ("Van","rojo","COT879",6000,true,987776,(short) 5);
         AbstractVehicle.add( van);
 
     }
@@ -59,7 +60,35 @@ public class VehicleManagementService {
         }
         return "vehicle found";
     }
+    public List<FilterDTO>filterByColor(String color, String type) {
+        int countOne=0;
+        int countTwo=0;
+        int countThree=0;
+        for (AbstractVehicle filteredVehicle:this.AbstractVehicle ) {
+            if (filteredVehicle.getColor().equals(color)) {
+                if ("car".equalsIgnoreCase(filteredVehicle.getType())) {
+                    countOne++;
+                }
+            }
+                if (filteredVehicle.getColor().equals(color) ) {
+                    if ("motocycle".equalsIgnoreCase(filteredVehicle.getType())) {
+                        countTwo++;
+                    }
 
 
+            } else if (filteredVehicle.getColor().equals(color)) {
+                    if ("van".equalsIgnoreCase(filteredVehicle.getType())) {
+                        countThree++;
+                    }
+            }
 
+        }
+        ArrayList<FilterDTO> filteredVehicles = new ArrayList<>();
+        filteredVehicles.add(new FilterDTO("car", countOne));
+        filteredVehicles.add(new FilterDTO("motocycle", countTwo));
+        filteredVehicles.add(new FilterDTO("van", countThree));
+        return filteredVehicles;
+
+
+    }
 }

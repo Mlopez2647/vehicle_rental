@@ -4,8 +4,8 @@ package co.edu.umanizales.vehicle_rental.model;
 public class Motorcycle extends AbstractVehicle implements VehicleAble{
     public boolean helmet;
 
-    public Motorcycle(String type,String numberPlate, int km, Boolean state, double rentalPrice, Boolean helmet) {
-        super(type,numberPlate, km, state, rentalPrice);
+    public Motorcycle(String type,String color, String numberPlate, int km, Boolean state, double rentalPrice, Boolean helmet) {
+        super(type, color, numberPlate, km, state, rentalPrice);
         this.helmet = helmet;
     }
 

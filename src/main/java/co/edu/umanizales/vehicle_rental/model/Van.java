@@ -3,8 +3,8 @@ package co.edu.umanizales.vehicle_rental.model;
 public class Van extends AbstractVehicle {
     public short capacity;
 
-    public Van(String type,String numberPlate, int km, boolean state, double rentalPrice, short capacity) {
-        super(type,numberPlate, km, state, rentalPrice);
+    public Van(String type,String color,String numberPlate, int km, boolean state, double rentalPrice, short capacity) {
+        super(type,color,numberPlate, km, state, rentalPrice);
         this.capacity = capacity;
 
     }

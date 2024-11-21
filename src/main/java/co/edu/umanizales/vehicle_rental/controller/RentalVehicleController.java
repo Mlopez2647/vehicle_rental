@@ -1,6 +1,7 @@
 package co.edu.umanizales.vehicle_rental.controller;
 import co.edu.umanizales.vehicle_rental.model.*;
 import co.edu.umanizales.vehicle_rental.service.*;
+import co.edu.umanizales.vehicle_rental.dto.FilterDTO;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,6 +61,12 @@ public class RentalVehicleController {
     public List<RentalVehicle> getRentalVehicles() {
         return userManagementService.rental;
     }
+    @PostMapping("/filter")
+    public List<FilterDTO> filter(@RequestBody FilterDTO filter) {
+        return vehicleManagementService.filterByColor(filter.getType(),filter.getColor());
+    }
+
+
 
 
 

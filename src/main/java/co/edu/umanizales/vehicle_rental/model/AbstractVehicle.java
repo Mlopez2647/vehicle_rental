@@ -11,10 +11,13 @@ import lombok.Setter;
 @AllArgsConstructor
  public abstract class AbstractVehicle implements VehicleAble {
     private String type;
+    private String color;
     public String numberPlate;
     public int km;
     public boolean state;
     public double rentalPrice;
+
+
 
     @Override
     public void rent() {
